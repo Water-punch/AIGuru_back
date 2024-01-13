@@ -1,9 +1,9 @@
 import { IsNotEmpty } from 'class-validator';
 
-export class UpdateItemDto {
+export class CreateCommentDto {
   @IsNotEmpty()
-  title: string;
+  boardId: number;
 
   @IsNotEmpty()
-  description: string;
+  content: string;
 }

@@ -4,6 +4,5 @@ import { createParamDecorator } from '@nestjs/common';
 // type으로 string을 사용 (나중에 변경되어야 함)
 
 export const GetUserTemp = createParamDecorator(() => {
-  console.log('임시 유저아이디 설정');
   return 'testUser123';
 });
