@@ -2,6 +2,10 @@
 
 db:
   synchronize: false
+  logging: true
 
 jwt:
   secret: 'mySecretKey'
+
+flask:
+  url: 'kdt-ai-9-team01.elicecoding.com'

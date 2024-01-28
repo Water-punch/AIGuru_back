@@ -1,12 +1,22 @@
-import { BaseEntity, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  BaseEntity,
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+  DeleteDateColumn,
+  //ManyToOne,
+} from 'typeorm';
+//import { User } from 'src/user/user.entity';
 
-@Entity()
-export class Boards extends BaseEntity {
+@Entity({ name: 'BOARD' })
+export class Board extends BaseEntity {
   @PrimaryGeneratedColumn()
-  board_id: number;
+  boardId: number;
 
   @Column({ type: 'varchar', length: 50 })
-  user_id: string;
+  userId: string;
 
   @Column({ type: 'varchar', length: 100 })
   title: string;
@@ -14,18 +24,25 @@ export class Boards extends BaseEntity {
   @Column({ type: 'text' })
   content: string;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'varchar', length: 50 })
+  tag: string;
+
+  @Column({ type: 'int', default: 0 })
   views: number;
 
-  @Column({ type: 'enum', enum: ['nomal', 'deleted', 'reported'] })
+  @Column({
+    type: 'enum',
+    enum: ['nomal', 'deleted', 'reported'],
+    default: 'nomal',
+  })
   status: string;
 
-  @Column({ type: 'datetime' })
-  created_at: Date;
+  @CreateDateColumn({ type: 'datetime' })
+  createdAt: Date;
 
-  @Column({ type: 'datetime', nullable: true })
-  updated_at: Date;
+  @UpdateDateColumn({ type: 'datetime', nullable: true })
+  updatedAt: Date;
 
-  @Column({ type: 'datetime', nullable: true })
-  deleted_at: Date;
+  @DeleteDateColumn({ type: 'datetime', nullable: true })
+  deletedAt: Date;
 }
