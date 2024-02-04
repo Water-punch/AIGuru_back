@@ -1,2 +1,11 @@
 db:
   synchronize: false
+
+jwt:
+  secret: 'mySecretKey'
+
+flask:
+  url: 'kdt-ai-9-team01.elicecoding.com'
+
+domain:
+  address: 'kdt-ai-9-team01.elicecoding.com'
